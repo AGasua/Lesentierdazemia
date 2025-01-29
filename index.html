@@ -8,6 +8,9 @@
         :root {
             --primary-color: #2b6cb0;
             --secondary-color: #c53030;
+            --background-color: #f7fafc;
+            --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --transition-speed: 0.3s;
         }
 
         * {
@@ -17,27 +20,39 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Arial, sans-serif;
             line-height: 1.6;
             color: #333;
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
-            background-color: #f7fafc;
+            background-color: var(--background-color);
+            background-image: 
+                radial-gradient(circle at 10px 10px, rgba(43, 108, 176, 0.05) 3px, transparent 3px),
+                radial-gradient(circle at 30px 30px, rgba(197, 48, 48, 0.05) 3px, transparent 3px);
+            background-size: 40px 40px;
         }
 
         header {
             text-align: center;
             padding: 40px 0;
             background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-radius: 15px;
+            box-shadow: var(--card-shadow);
             margin-bottom: 30px;
+            transition: transform var(--transition-speed);
+        }
+
+        header:hover {
+            transform: translateY(-5px);
         }
 
         h1 {
             color: var(--primary-color);
             margin-bottom: 15px;
+            font-size: 2.5em;
+            font-weight: 700;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
         }
 
         .flags {
@@ -50,53 +65,13 @@
         .flag {
             width: 60px;
             height: 40px;
-            border: 1px solid #ddd;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            transition: transform var(--transition-speed);
         }
 
-        .description {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 40px;
-            padding: 20px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .audio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .audio-card {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .audio-card h3 {
-            color: var(--primary-color);
-            margin-bottom: 15px;
-        }
-
-        .audio-card p {
-            margin-bottom: 15px;
-            font-size: 0.9em;
-        }
-
-        audio {
-            width: 100%;
-            margin-top: 10px;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 50px;
-            padding: 20px;
-            color: #666;
+        .flag:hover {
+            transform: scale(1.1);
         }
 
         .schools-info {
@@ -104,27 +79,143 @@
             justify-content: space-around;
             margin: 20px 0;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 30px;
         }
 
         .school-card {
             background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: var(--card-shadow);
             flex: 1;
             min-width: 300px;
             text-align: center;
+            transition: transform var(--transition-speed);
+        }
+
+        .school-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .description {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            padding: 30px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: var(--card-shadow);
+            transition: transform var(--transition-speed);
+        }
+
+        .description:hover {
+            transform: translateY(-5px);
+        }
+
+        .audio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .audio-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: var(--card-shadow);
+            transition: all var(--transition-speed);
+            border: 1px solid transparent;
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+
+        .audio-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+        }
+
+        .audio-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.5em;
+            font-weight: 600;
+        }
+
+        .audio-card p {
+            margin-bottom: 20px;
+            font-size: 1em;
+            color: #4a5568;
+            line-height: 1.8;
+        }
+
+        .student-photo {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 10px;
+            margin: 15px 0;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: var(--card-shadow);
+            transition: transform var(--transition-speed);
+        }
+
+        .student-photo:hover {
+            transform: scale(1.02);
+        }
+
+        audio {
+            width: 100%;
+            margin-top: 15px;
+            border-radius: 8px;
+            background-color: #f8f9fa;
+        }
+
+        audio::-webkit-media-controls-panel {
+            background-color: #f8f9fa;
+        }
+
+        audio::-webkit-media-controls-play-button {
+            background-color: var(--primary-color);
+            border-radius: 50%;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         @media (max-width: 768px) {
             body {
-                padding: 10px;
+                padding: 15px;
             }
             
             .audio-grid {
                 grid-template-columns: 1fr;
+                gap: 20px;
             }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .description {
+                padding: 20px;
+            }
+        }
+
+        *:focus {
+            outline: 3px solid var(--primary-color);
+            outline-offset: 2px;
         }
     </style>
 </head>
@@ -132,8 +223,8 @@
     <header>
         <h1>La Vie à Boisbriand : Récits pour nos Amis d'Évreux</h1>
         <div class="flags">
-            <img src="/api/placeholder/60/40" alt="Drapeau du Québec" class="flag">
-            <img src="/api/placeholder/60/40" alt="Drapeau de la France" class="flag">
+            <img src="assets/images/quebec-flag.png" alt="Drapeau du Québec" class="flag">
+            <img src="assets/images/france-flag.png" alt="Drapeau de la France" class="flag">
         </div>
         <p>Un Projet d'Échange Culturel entre Écoliers et Aînés</p>
     </header>
@@ -155,10 +246,11 @@
 
     <div class="audio-grid">
         <div class="audio-card">
-            <h3>Une Journée à Mon École</h3>
-            <p>Sophie explique comment se déroule une journée typique à l'école au Québec, des routines du matin aux matières préférées.</p>
+            <h3>Entrevue avec Rosalie</h3>
+            <img src="assets/images/Rosalie.jpg" alt="Photo de Rosalie" class="student-photo">
+            <p>Rosalie nous parle de ses jeux de société préférés, de son amour pour les animaux, et de ses rêves de voyage à Toronto et Disney World. Elle partage aussi ses souvenirs d'école, son quartier, et ce qui la rend vraiment heureuse, comme revoir sa famille.</p>
             <audio controls>
-                <source src="#" type="audio/mpeg">
+                <source src="assets/audio/Rosalie.mp3" type="audio/mpeg">
                 Votre navigateur ne prend pas en charge l'élément audio.
             </audio>
         </div>
@@ -167,7 +259,7 @@
             <h3>Les Activités d'Hiver</h3>
             <p>Lucas parle de ses activités d'hiver préférées, du patinage sur glace à la construction de bonhommes de neige.</p>
             <audio controls>
-                <source src="#" type="audio/mpeg">
+                <source src="assets/audio/winter-activities.mp3" type="audio/mpeg">
                 Votre navigateur ne prend pas en charge l'élément audio.
             </audio>
         </div>
@@ -176,7 +268,7 @@
             <h3>Nos Traditions Familiales</h3>
             <p>Emma partage les traditions spéciales du Québec et comment sa famille célèbre les fêtes.</p>
             <audio controls>
-                <source src="#" type="audio/mpeg">
+                <source src="assets/audio/family-traditions.mp3" type="audio/mpeg">
                 Votre navigateur ne prend pas en charge l'élément audio.
             </audio>
         </div>
@@ -185,7 +277,7 @@
             <h3>Notre Cuisine</h3>
             <p>Thomas décrit ses plats québécois préférés et ce qu'il mange habituellement pendant la journée.</p>
             <audio controls>
-                <source src="#" type="audio/mpeg">
+                <source src="assets/audio/food-and-cuisine.mp3" type="audio/mpeg">
                 Votre navigateur ne prend pas en charge l'élément audio.
             </audio>
         </div>
