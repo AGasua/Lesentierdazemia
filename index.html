@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Échange culturel Boisbriand-Évreux</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #2b6cb0;
-            --secondary-color: #c53030;
-            --background-color: #f7fafc;
-            --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --primary-color: #000;
+            --text-color: #333;
+            --background-color: #fff;
+            --card-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
             --transition-speed: 0.3s;
         }
 
@@ -20,113 +21,75 @@
         }
 
         body {
-            font-family: 'Segoe UI', Arial, sans-serif;
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: var(--text-color);
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
-            background-color: #f0f0f0;
+            background-color: var(--background-color);
         }
 
-        header {
-            text-align: center;
-            padding: 40px 0;
-            background-color: white;
-            border-radius: 15px;
-            box-shadow: var(--card-shadow);
-            margin-bottom: 30px;
-            transition: transform var(--transition-speed);
-        }
-
-        header:hover {
-            transform: translateY(-5px);
-        }
-
-        h1 {
-            color: var(--primary-color);
-            margin-bottom: 15px;
-            font-size: 2em;
-            font-weight: 700;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-        }
-
-        .flags {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin: 20px 0;
-        }
-
-        .flag {
-            width: 60px;
-            height: 40px;
-            border: 2px solid #ddd;
-            border-radius: 4px;
-            transition: transform var(--transition-speed);
-        }
-
-        .flag:hover {
-            transform: scale(1.1);
-        }
-
-        .schools-info {
-            display: flex;
-            justify-content: space-around;
-            margin: 20px 0;
-            flex-wrap: wrap;
-            gap: 30px;
-        }
-
-        .school-card {
+        /* Nouveau Hero */
+        .hero {
+            padding: 80px 40px;
+            margin-bottom: 40px;
             background: white;
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: var(--card-shadow);
-            flex: 1;
-            min-width: 300px;
-            text-align: center;
-            transition: transform var(--transition-speed);
         }
 
-        .school-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .description {
-            text-align: center;
+        .hero-content {
             max-width: 800px;
-            margin: 0 auto 40px;
-            padding: 30px;
-            background-color: white;
-            border-radius: 15px;
-            box-shadow: var(--card-shadow);
-            transition: transform var(--transition-speed);
+            margin: 0 auto;
+            text-align: left;
         }
 
-        .description:hover {
-            transform: translateY(-5px);
+        .hero h1 {
+            font-size: 3.5em;
+            line-height: 1.2;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 40px;
+            letter-spacing: -0.02em;
         }
 
+        .subtitle {
+            font-size: 1.25em;
+            color: var(--primary-color);
+            margin-bottom: 24px;
+            font-weight: 500;
+        }
+
+        .hero-description {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: var(--text-color);
+            max-width: 600px;
+        }
+
+        .divider {
+            width: 40px;
+            height: 4px;
+            background: var(--primary-color);
+            margin: 40px 0;
+        }
+
+        /* Audio Grid */
         .audio-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
+            padding: 0 40px;
             margin-top: 30px;
         }
 
         .audio-card {
             background: white;
             padding: 25px;
-            border-radius: 15px;
-            box-shadow: var(--card-shadow);
+            border-radius: 4px;
+            border: 1px solid #eee;
             transition: all var(--transition-speed);
-            border: 1px solid transparent;
-            animation: fadeIn 0.5s ease-out forwards;
         }
 
         .audio-card:hover {
-            transform: translateY(-5px);
             border-color: var(--primary-color);
         }
 
@@ -135,12 +98,13 @@
             margin-bottom: 15px;
             font-size: 1.5em;
             font-weight: 600;
+            letter-spacing: -0.01em;
         }
 
         .audio-card p {
             margin-bottom: 20px;
             font-size: 1em;
-            color: #4a5568;
+            color: var(--text-color);
             line-height: 1.8;
         }
 
@@ -148,23 +112,15 @@
             width: 100%;
             max-width: 300px;
             height: auto;
-            border-radius: 10px;
-            margin: 15px 0;
+            border-radius: 4px;
+            margin: 15px auto;
             display: block;
-            margin-left: auto;
-            margin-right: auto;
-            box-shadow: var(--card-shadow);
-            transition: transform var(--transition-speed);
-        }
-
-        .student-photo:hover {
-            transform: scale(1.02);
         }
 
         audio {
             width: 100%;
             margin-top: 15px;
-            border-radius: 8px;
+            border-radius: 4px;
             background-color: #f8f9fa;
         }
 
@@ -180,54 +136,51 @@
         footer {
             text-align: center;
             margin-top: 50px;
-            padding: 20px;
-            color: #666;
+            padding: 20px 40px;
+            color: var(--text-color);
             font-size: 0.9em;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            border-top: 1px solid #eee;
         }
 
         @media (max-width: 768px) {
-            body {
-                padding: 15px;
+            .hero {
+                padding: 40px 20px;
             }
-            
+
+            .hero h1 {
+                font-size: 2.5em;
+            }
+
+            .subtitle {
+                font-size: 1.1em;
+            }
+
+            .hero-description {
+                font-size: 1em;
+            }
+
             .audio-grid {
+                padding: 0 20px;
                 grid-template-columns: 1fr;
                 gap: 20px;
-            }
-
-            h1 {
-                font-size: 2em;
-            }
-
-            .description {
-                padding: 20px;
             }
         }
 
         *:focus {
-            outline: 3px solid var(--primary-color);
+            outline: 2px solid var(--primary-color);
             outline-offset: 2px;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>La vie à l'école Le Sentier :<br />
-            Récits pour nos amis d'Évreux</h1>
-        <div class="flags">
-            <img src="assets/images/quebec-flag.png" alt="Drapeau du Québec" class="flag">
-            <img src="assets/images/france-flag.png" alt="Drapeau de la France" class="flag">
+    <div class="hero">
+        <div class="hero-content">
+            <div class="divider"></div>
+            <h1>La vie à l'école Le Sentier</h1>
+            <p class="subtitle">Un projet d'échange culturel entre écoliers québécois et aînés français</p>
+            <p class="hero-description">Les élèves de 3ième (CE1) et 4ième année (CE2) de l'école Le Sentier partagent leur quotidien pour les résidents de l'EHPAD Azémia à travers des entrevues enregistrées. Écoutez leurs histoires sur l'école, la famille, les traditions et ce qui rend la vie au Québec si spéciale.</p>
         </div>
-        <p>Un Projet d'échange culturel entre écoliers québecois et aînés francais</p>
-        <p>Bienvenue dans notre voyage sonore ! <br />
-            Les élèves de 3ième (CE1) et 4ième année (CE2) de l'école Le Sentier partagent leur quotidien pour les résidents de l'EHPAD Azémia à travers des entrevues enregistrées. <br />
-            Écoutez leurs histoires sur l'école, la famille, les traditions et ce qui rend la vie au Québec si spéciale.</p>
-    </header>
+    </div>
 
     <div class="audio-grid">
         <div class="audio-card">
@@ -243,7 +196,7 @@
         <div class="audio-card">
             <h3>Entrevue avec Ariane</h3>
             <img src="assets/images/ariane.jpg" alt="Illustration de Ariane et Victor" class="student-photo">
-            <p>Ariane nous parle de sa passion pour les animaux et son rêve de devenir vétérinaire, ainsi que de son amour pour le poulet au citron et le patinage. Elle partage aussi ses moments heureux en famille, ses souvenirs d’anniversaire avec un gâteau à la vanille et son plaisir de jouer à Pet Shop.</p>
+            <p>Ariane nous parle de sa passion pour les animaux et son rêve de devenir vétérinaire, ainsi que de son amour pour le poulet au citron et le patinage. Elle partage aussi ses moments heureux en famille, ses souvenirs d'anniversaire avec un gâteau à la vanille et son plaisir de jouer à Pet Shop.</p>
             <audio controls>
                 <source src="assets/audio/Ariane.mp3" type="audio/mpeg">
                 Votre navigateur ne prend pas en charge l'élément audio.
@@ -253,7 +206,7 @@
         <div class="audio-card">
             <h3>Entrevue avec Laurent</h3>
             <img src="assets/images/Laurent.jpg" alt="Illustration de Laurent et Victor" class="student-photo">
-            <p>Laurent, 9 ans, aime le hockey, les projets à l’école et jouer avec son ami Charles-Antoine. Il adore sa famille, ses chats Cupcake et Octavia, et son plat préféré est le pâté chinois.
+            <p>Laurent, 9 ans, aime le hockey, les projets à l'école et jouer avec son ami Charles-Antoine. Il adore sa famille, ses chats Cupcake et Octavia, et son plat préféré est le pâté chinois.</p>
             <audio controls>
                 <source src="assets/audio/Laurent.mp3" type="audio/mpeg">
                 Votre navigateur ne prend pas en charge l'élément audio.
@@ -263,18 +216,17 @@
         <div class="audio-card">
             <h3>Entrevue avec Mia</h3>
             <img src="assets/images/Mia.jpg" alt="Illustration de Mia et Victor" class="student-photo">
-            <p>Mia a 9 ans, elle aime les maths, le basket et le film Sonic parce qu’elle le trouve drôle. Elle adore passer du temps avec ses amis et sa famille, jouer dehors en hiver, et manger de la crème glacée à la vanille.</p>
+            <p>Mia a 9 ans, elle aime les maths, le basket et le film Sonic parce qu'elle le trouve drôle. Elle adore passer du temps avec ses amis et sa famille, jouer dehors en hiver, et manger de la crème glacée à la vanille.</p>
             <audio controls>
                 <source src="assets/audio/Mia.mp3" type="audio/mpeg">
                 Votre navigateur ne prend pas en charge l'élément audio.
             </audio>
         </div>
 
-        
         <div class="audio-card">
             <h3>Entrevue avec Justine</h3>
             <img src="assets/images/Justine.jpg" alt="Illustration de Justine et Victor" class="student-photo">
-            <p>Justine adore les animaux, a déjà eu un chien, des poules et un hamster, et rêve d’avoir un cochon d’Inde. Elle aime aussi les maths, le soccer, la pizza moelleuse et rêve de voir des koalas en Australie.</p>
+            <p>Justine adore les animaux, a déjà eu un chien, des poules et un hamster, et rêve d'avoir un cochon d'Inde. Elle aime aussi les maths, le soccer, la pizza moelleuse et rêve de voir des koalas en Australie.</p>
             <audio controls>
                 <source src="assets/audio/Justine.mp3" type="audio/mpeg">
                 Votre navigateur ne prend pas en charge l'élément audio.
